@@ -1,0 +1,17 @@
+<a href="/board">&larr; 뒤로가기</a>
+<div class="admin-title">
+    <h2><%= locals.title %></h2>
+</div>
+
+<form action="/addcomment" method="POST">
+    <label for="nickname"><b>닉네임</b></label>
+    <input type="text" placeholder="닉네임을 입력해주세요" name="nickname" id="nickname" required>
+
+    <label for="title"><b>제목</b></label>
+    <input type="text" placeholder="제목을 입력해주세요" name="title" id="title" required>
+
+    <label for="body"><b>내용</b></label>
+    <textarea placeholder="내용을 입력해주세요" name="body" cols="50" row="10" required></textarea>
+
+    <input type="submit" value="등록하기" class="btn">
+</form>

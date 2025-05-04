@@ -1,0 +1,20 @@
+      <div class="top">
+        <h1 class="top-heading">Cindy의 Node.js 도전기</h1>
+        <p class="top-body">Re:제로에서 시작하는 Node.js 개발 라이프</p>
+      </div>
+
+      <img src="/img/top-hero.jpg" alt="programmers work space" class="hero-image" width="840" height="400">
+
+      <section class="articles">
+        <h2 class="articles-heading">최근 게시물</h2>
+        <ul class="article-ul">
+          <% data.slice(0, 5).forEach(post => { %>
+            <li>
+              <a href="/post/<%= post._id %>">
+                <span><%= post.title %></span>
+                <span class="article-list-date"><%= post.createdAt.toDateString() %></span>
+              </a>
+            </li>
+          <% }) %>
+        </ul>
+      </section>

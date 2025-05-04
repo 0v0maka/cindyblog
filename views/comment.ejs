@@ -1,0 +1,12 @@
+<a href="/board">&larr; 게시판으로 돌아가기</a>
+<h1><%= data.title %></h1>
+<hr>
+<div>
+    <h3>'<%= data.nickname %>' 님의 응원 메시지</h3>
+</div>
+<div>
+    <h3><%= data.createdAt.toDateString() %></h3>
+</div>
+<article class="article">
+    <%= data.body %>
+</article>

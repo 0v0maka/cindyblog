@@ -1,0 +1,22 @@
+<div class="admin-title">
+    <h1>BOARD</h1>
+    <a href="/addcomment" class="btn-sub">응원 남기기</a>
+</div>
+<h3>
+    신디에게 응원의 메시지를 남겨주세요! 작은 관심이 한명의 기획자에겐 큰 힘이 됩니다 ^-^
+    <br>※블로그 기능 추가나 버그 제보는 받지 않습니다... <del>살려주세요</del>
+</h3>
+<hr>
+<section class="articles">
+    <ul class="article-ul">
+        <% data.forEach(comment => { %>
+            <li>
+                <h3>'<%= comment.nickname %>' 님의 응원 메시지</h3>
+                <a href="/comment/<%= comment._id %>">
+                    <span><%= comment.title %></span>
+                    <span class="article-list-date"><%= comment.createdAt.toDateString() %></span>
+                </a>
+            </li>
+        <% }) %>
+    </ul>
+</section>
