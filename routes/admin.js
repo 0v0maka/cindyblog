@@ -121,7 +121,6 @@ router.put("/edit/:id", checkLogin, asyncHandler(async (req, res) => {
         await Post.findByIdAndUpdate(req.params.id, {
             title: req.body.title,
             body: req.body.body,
-            createdAt: Date.now(),
         });
 
         res.redirect("/allPosts");
