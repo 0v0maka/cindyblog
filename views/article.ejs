@@ -15,4 +15,21 @@
         </li>
       <% }) %>
     </ul>
+    <div class="pagination">
+      <% if (currentPage > 1) { %>
+          <a href="/article?page=<%= currentPage -1 %>">&laquo; 이전</a>
+      <% } %>
+    
+      <% for (let i = 1; i <= totalPages; i++) { %>
+          <% if (i === currentPage) { %>
+              <strong><%= i %></strong>
+          <% } else { %>
+              <a href="/article?page=<%= i %>"><%= i %></a>
+          <% } %>
+      <% } %>
+    
+      <% if (currentPage < totalPages) { %>
+          <a href="/article?page=<%= currentPage +1 %>">다음 &raquo;</a>
+      <% } %>
+    </div>
 </section>

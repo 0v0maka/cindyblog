@@ -64,10 +64,20 @@ router.get("/allPosts", checkLogin, asyncHandler(async (req, res) => {
         const locals = {
             title: "Posts",
         };
-        const data = await Post.find({}).sort({ _id: -1 });
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 10;
+        
+        const skip = (page -1) * limit;
+
+        const totalPosts = await Post.countDocuments();
+        const totalPages = Math.ceil(totalPosts / limit);
+
+        const data = await Post.find({}).sort({ _id: -1 }).skip(skip).limit(limit);
         res.render("admin/allPosts", {
             locals,
             data,
+            currentPage: page,
+            totalPages,
             layout: adminLayout,
         });
     })

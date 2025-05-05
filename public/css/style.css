@@ -254,8 +254,8 @@ img {
 }
 
 .pagination {
-  font-size: 1.3rem;
-  color: var(--gray);
+  font-size: 16px;
+  color: cornflowerblue;
   text-decoration: none;
   margin-top: 40px;
   display: inline-block;

@@ -34,8 +34,16 @@ router.get("/article",
         const locals = {
             title: "ARTICLE",
         };
-        const data = await Post.find({}).sort({ _id: -1 });
-        res.render("article", {locals, data, layout: mainLayout});
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 10;
+
+        const skip = (page -1) * limit;
+
+        const totalPosts = await Post.countDocuments();
+        const totalPages = Math.ceil(totalPosts / limit);
+
+        const data = await Post.find({}).sort({ _id: -1 }).skip(skip).limit(limit);
+        res.render("article", {locals, data, currentPage: page, totalPages, layout: mainLayout});
     })
 );
 
@@ -44,8 +52,16 @@ router.get("/board",
         const locals = {
             title: "BOARD",
         };
-        const data = await Comment.find({}).sort({ _id: -1 });
-        res.render("board", {locals, data, layout: mainLayout});
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 10;
+
+        const skip = (page -1) * limit;
+
+        const totalComments = await Comment.countDocuments();
+        const totalPages = Math.ceil(totalComments / limit);
+
+        const data = await Comment.find({}).sort({ _id: -1 }).skip(skip).limit(limit);
+        res.render("board", {locals, data, currentPage: page, totalPages, layout: mainLayout});
     })
 );
 
