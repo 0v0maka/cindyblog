@@ -20,5 +20,8 @@
     "jsonwebtoken": "^9.0.2",
     "method-override": "^3.0.0",
     "mongoose": "^8.15.0"
+  },
+  "volta": {
+    "node": "22.23.2"
   }
 }
